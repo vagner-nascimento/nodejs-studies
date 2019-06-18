@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  heroes-postgress:
+    image: postgres:11
+    container_name: heroes-postgress
+    ports:
+      - 54320:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=heroes
+    volumes:
+      - postgress_dbdata:/var/lib/postgresql/data
+
+  heroes-mongo:
+    image: mongo
+    container_name: heroes-mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongo_dbdata:/var/lib/mongodb/data
+    #   - ./init-mongo.sh:/home/vagner/workspace/studies/node-js/nodejs-studies/working-multiple-dbs/init-mongo.sh #IT STILL DOESN'T WORK
+    # command: 
+    #   - /home/vagner/workspace/studies/node-js/nodejs-studies/working-multiple-dbs/init-mongo.sh
+
+volumes:
+  postgress_dbdata:
+  mongo_dbdata:
