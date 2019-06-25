@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -w *.test.js"
   },
-  "author": "erickwendel",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^5.2.0"
