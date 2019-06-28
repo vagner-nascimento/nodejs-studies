@@ -73,4 +73,13 @@ describe.only('API Heroes test suite', function ()  {
         assert.deepEqual(result.statusCode, 200) 
         assert.deepEqual(JSON.parse(result.payload).nModified, 1)
     })
+
+    it('DELETE /heroes/{id}', async () => {
+        const result =  await app.inject({
+            method: 'DELETE',
+            url: `/heroes/${MOCK_ID}` 
+        })
+        assert.deepEqual(result.statusCode, 200) 
+        assert.deepEqual(JSON.parse(result.payload).n, 1)
+    })
 })
